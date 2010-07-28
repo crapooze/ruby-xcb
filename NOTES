@@ -1,0 +1,3 @@
+* Apparently, FFI cannot attach_function in a method_missing, so we cannot load eagerly missing methods.
+* This is more a proof of concept.
+* JRuby obfuscates the "true" file descriptors. So we cannot put it in a select loop. Hopefully, Java has system threads so you can block-waiting via the XCB API call.

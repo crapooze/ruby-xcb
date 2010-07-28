@@ -1,0 +1,5 @@
+* a "pre-compiled" wrapper to lighten the runtime dependencies
+* load all the simple #define from the .h
+* extract the binding generator as a standalone app
+* better loading / naming
+* test suite

@@ -1,0 +1,41 @@
+ruby-xcb
+	by crapooze
+
+== DESCRIPTION:
+
+Ruby-XCB wants to be a Ruby binding to the XCB library.  It is currently an
+experimental project more than anything else.
+
+== REQUIREMENTS:
+
+* gcc
+* xcb with headers files (maybe devel package)
+* a ruby implementation which can run the other dependencies
+* ffi 
+* rbgccxml
+* gccxml_gem
+* nokogiri (it's in fact a dependency on rbgccxml)
+
+== HOW IT WORKS:
+
+Since XCB code is really nice and modular, it is easy to automatically build a
+ruby/ffi wrapper around it. 
+
+The binding is built following these steps:
+- first rbgccxml and gccxml_gem compiles the .h files to a big XML description
+- then ruby-xcb builds structures, unions, and methods given the XML
+  desscription
+- some const_missing or method_missing magic makes the use of the library
+  easier
+- I "manually" added some constants defined with preprocessor #define
+  statements, I'll later autogenerate this 
+
+Currently, the wrapper is rebuilt each time but it could be easy to "compile"
+the wrapper once to ruby code and then distribute it directly.
+
+See also the NOTES file for random remarks.
+
+== DISCLAIMER:
+
+I'm not an expert with FFI yet (nor with XCB at all), it is thus very likely
+that there are memory leaks.
